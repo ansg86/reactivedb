@@ -13,3 +13,8 @@ jobs:
   build_maven_job:
     name: Code Checkout and Maven
     runs-on: ubuntu-latest
+
+    steps:
+    - name: Show Info
+      run: |
+        echo ${{github.event.inputs.version}}
