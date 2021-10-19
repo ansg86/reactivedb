@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.start</groupId>
 	<artifactId>reactivedb</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>reactivedb</name>
 	<description>Reactive DB testing</description>
 	<properties>
@@ -45,9 +45,16 @@
 			<groupId>com.oracle.database.r2dbc</groupId>
 			<artifactId>oracle-r2dbc</artifactId>
 		</dependency>
-		<!-- dependency> <groupId>com.h2database</groupId> <artifactId>h2</artifactId> 
-			<scope>runtime</scope> </dependency> <dependency> <groupId>io.r2dbc</groupId> 
-			<artifactId>r2dbc-h2</artifactId> <scope>runtime</scope> </dependency -->
+		<!--  dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.r2dbc</groupId>
+			<artifactId>r2dbc-h2</artifactId>
+			<scope>runtime</scope>
+		</dependency-->
 	</dependencies>
 
 	<build>
@@ -66,11 +73,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<distributionManagement>
-		<repository>
-			<id>github</id>
-			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/ansg86/reactivedb</url>
-		</repository>
-	</distributionManagement>
+
 </project>
