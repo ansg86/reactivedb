@@ -15,11 +15,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Show Info
-      run: |
-        echo ${{github.event.inputs.version}}
+      - name: Show Info
+        run: |
+          echo ${{github.event.inputs.version}}
 
-    - name: perform deletion
-      uses: actions/delete-package-versions@v1
-      with:
-        package-version-ids: 1051343
+      - name: perform deletion
+        uses: actions/delete-package-versions@v1
+        with:
+          package-version-ids: 'PV_lADOGPYwsc4AEArPzgDJZfI'
+          token: {{ secrets.ACCESS_PAT }}
