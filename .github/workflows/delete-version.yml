@@ -1,15 +1,15 @@
-# This workflow for cleaning up version
-name: delete version
+# This workflow for cleaning up version as per request
+name: Delete Version
 
 # invoke manually
-  on:
-    workflow_dispatch:
-      inputs:
-        version:
-          description: 'Version to delete'
-          required: true
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to delete'
+        required: true
 
-  jobs:
-    build_maven_job:
-      name: Code Checkout and Maven
-      runs-on: ubuntu-latest
+jobs:
+  build_maven_job:
+    name: Code Checkout and Maven
+    runs-on: ubuntu-latest
