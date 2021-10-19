@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.start</groupId>
 	<artifactId>reactivedb</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<name>reactivedb</name>
 	<description>Reactive DB testing</description>
 	<properties>
