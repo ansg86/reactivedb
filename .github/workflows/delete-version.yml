@@ -18,3 +18,8 @@ jobs:
     - name: Show Info
       run: |
         echo ${{github.event.inputs.version}}
+
+    - name: perform deletion
+      uses: actions/delete-package-versions@v1
+      with:
+        package-version-ids: 1051343
