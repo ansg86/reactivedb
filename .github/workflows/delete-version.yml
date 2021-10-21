@@ -21,13 +21,13 @@ jobs:
 
       - name: curl
         run: |
-          JSON_STR=$(echo curl -sL -X POST https://api.github.com/graphql \
+          echo $(curl -sL -X POST https://api.github.com/graphql \
           -H "Authorization: bearer ${{secrets.ACCESS_PAT}}" \
-          -d '{"query":"query{repository(owner:\"ansg86\",name:\"reactivedb\"){packages(first:1){nodes{version(version:\"0.0.1\"){id,version}}}}}"}' | jq .) >> $GITHUB_ENV
+          -d '{"query":"query{repository(owner:\"ansg86\",name:\"reactivedb\"){packages(first:1){nodes{version(version:\"0.0.1\"){id,version}}}}}"}' | jq .)
 
-      - name: get version id
-        run: |
-          echo $(jq -r '.data.repository.packages.nodes[0].version.id' <<< $GITHUB_ENV)
+#      - name: get version id
+#        run: |
+#          echo $(jq -r '.data.repository.packages.nodes[0].version.id' <<< $GITHUB_ENV)
 
 #      - name: perform deletion
 #        uses: actions/delete-package-versions@v1
