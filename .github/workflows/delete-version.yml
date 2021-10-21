@@ -23,7 +23,7 @@ jobs:
         run: |
           echo "PACKAGE_VERSION_ID=$(echo $(jq -r '.data.repository.packages.nodes[0].version.id'  <<< $(curl -sL -X POST https://api.github.com/graphql \
           -H "Authorization: bearer ${{secrets.ACCESS_PAT}}" \
-          -d '{"query":"query{repository(owner:\"ansg86\",name:\"reactivedb\"){packages(first:1){nodes{version(version:\"0.0.1\"){id,version}}}}}"}' | jq .)))" >> $GITHUB_ENV
+          -d '{"query":"query{repository(owner:\"ansg86\",name:\"reactivedb\"){packages(first:1){nodes{version(version:\"${{github.event.inputs.version}}\"){id,version}}}}}"}' | jq .)))" >> $GITHUB_ENV
 
       - name: get version id
         run: |
