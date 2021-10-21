@@ -29,8 +29,8 @@ jobs:
         run: |
           echo $PACKAGE_VERSION_ID
 
-#      - name: perform deletion
-#        uses: actions/delete-package-versions@v1
-#        with:
-#          package-version-ids: 'PV_lADOGPYwsc4AEArPzgDJZfI'
-#          token: ${{secrets.ACCESS_PAT}}
+      - name: perform deletion
+        uses: actions/delete-package-versions@v1
+        with:
+          package-version-ids: $PACKAGE_VERSION_ID
+          token: ${{secrets.ACCESS_PAT}}
