@@ -25,9 +25,9 @@ jobs:
           -H "Authorization: bearer ${{secrets.ACCESS_PAT}}" \
           -d '{"query":"query{repository(owner:\"ansg86\",name:\"reactivedb\"){packages(first:1){nodes{version(version:\"0.0.1\"){id,version}}}}}"}' | jq .)))" >> $GITHUB_ENV
 
-#      - name: get version id
-#        run: |
-#          echo $(jq -r '.data.repository.packages.nodes[0].version.id' <<< $GITHUB_ENV)
+      - name: get version id
+        run: |
+          echo $PACKAGE_VERSION_ID
 
 #      - name: perform deletion
 #        uses: actions/delete-package-versions@v1
