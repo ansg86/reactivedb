@@ -29,7 +29,8 @@ jobs:
         run: |
           echo $PACKAGE_VERSION_ID
 
-      - name: perform deletion
+      - if: $PACKAGE_VERSION_ID != null
+        name: perform deletion
         uses: actions/delete-package-versions@v1
         with:
           package-version-ids: ${{env.PACKAGE_VERSION_ID}}
