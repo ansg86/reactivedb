@@ -18,19 +18,15 @@ public class CustomerService {
 	@Autowired
 	private CustomerRepository customerRepository;
 
-	public void addNewCustomer(Customer customer) {
-		Mono<Customer> customerMono = customerRepository.save(customer);
-		Customer storeResult= customerMono.block();
-		System.out.println("result " + storeResult.getFirstName());
+	public Mono<Customer> addNewCustomer(Customer customer) {
+		return customerRepository.save(customer);
 	}
 
-	public Customer getCustomer(Long id) {
-		Mono<Customer> customerMono = customerRepository.findById(id);
-		return customerMono.block(Duration.ofSeconds(10));
+	public Mono<Customer> getCustomer(Long id) {
+		return customerRepository.findById(id);
 	}
 	
-	public List<Customer> findAllCustomer() {
-		Flux<Customer> customerFlux= customerRepository.findAll();
-		return customerFlux.collectList().block();
+	public Flux<Customer> findAllCustomer() {
+		return customerRepository.findAll();
 	}
 }
