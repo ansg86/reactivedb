@@ -35,3 +35,8 @@ jobs:
         with:
           package-version-ids: ${{env.PACKAGE_VERSION_ID}}
           token: ${{secrets.ACCESS_PAT}}
+
+      - if: env.PACKAGE_VERSION_ID == 'null'
+        name: Show Info
+        run: |
+          echo 'No deletion happen as there is no prior package found'
