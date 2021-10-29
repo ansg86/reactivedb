@@ -11,21 +11,26 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/customer")
 public class CustomerController {
 
-	@Autowired
-	private CustomerService customerService;
+    @Autowired
+    private CustomerService customerService;
 
-	@PostMapping
-	public Mono<Customer> createCustomer(@RequestBody Customer customer) {
-		return customerService.addNewCustomer(customer);
-	}
+    @PostMapping
+    public Mono<Customer> createCustomer(@RequestBody Customer customer) {
+        return customerService.addNewCustomer(customer);
+    }
 
-	@GetMapping("/{id}")
-	public Mono<Customer> getCustomer(@PathVariable Long id) {
-		return customerService.getCustomer(id);
-	}
-	
-	@GetMapping("/all")
-	public Flux<Customer> getAll() {
-		return customerService.findAllCustomer();
-	}
+    @GetMapping("/{id}")
+    public Mono<Customer> getCustomer(@PathVariable(value = "id") Long id) {
+        return customerService.getCustomer(id);
+    }
+
+    @GetMapping("/last-name/{lastName}")
+    private Flux<Customer> getCustomerByLastName(@PathVariable(value = "lastName") String lastName) {
+        return customerService.getCustomerByLastName(lastName);
+    }
+
+    @GetMapping("/all")
+    public Flux<Customer> getAll() {
+        return customerService.findAllCustomer();
+    }
 }

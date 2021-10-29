@@ -15,18 +15,22 @@ import reactor.core.publisher.Mono;
 @Service
 public class CustomerService {
 
-	@Autowired
-	private CustomerRepository customerRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
-	public Mono<Customer> addNewCustomer(Customer customer) {
-		return customerRepository.save(customer);
-	}
+    public Mono<Customer> addNewCustomer(Customer customer) {
+        return customerRepository.save(customer);
+    }
 
-	public Mono<Customer> getCustomer(Long id) {
-		return customerRepository.findById(id);
-	}
-	
-	public Flux<Customer> findAllCustomer() {
-		return customerRepository.findAll();
-	}
+    public Mono<Customer> getCustomer(Long id) {
+        return customerRepository.findById(id);
+    }
+
+    public Flux<Customer> getCustomerByLastName(String lastName) {
+        return customerRepository.findByLastName(lastName);
+    }
+
+    public Flux<Customer> findAllCustomer() {
+        return customerRepository.findAll();
+    }
 }

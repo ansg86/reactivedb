@@ -12,9 +12,9 @@ import lombok.Value;
 public class Customer {
 
 	@Id
-	private Long id;
+	Long id;
 	
-	private String firstName;
+	String firstName;
 	
-	private String lastName;
+	String lastName;
 }
